@@ -1,0 +1,8 @@
+创建一个vue-cli项目
+1.npm i vue-cli -g  //安装环境
+2.vue init webpack vue2-shop  //初始化vue-cli项目
+3.cd vue2-shop    (项目名称)
+4.cnpm i          //安装依赖
+5.npm run dev  //运行项目 npm start
+
+
