@@ -1,8 +1,32 @@
-创建一个vue-cli项目
-1.npm i vue-cli -g  //安装环境
+蔡伟健教你入门敲vue项目
+前置任务：安装node，cnpm环境
+生成一个简单的vue-cli项目
+1.cnpm i vue-cli -g  //安装环境
 2.vue init webpack vue2-shop  //初始化vue-cli项目
 3.cd vue2-shop    (项目名称)
 4.cnpm i          //安装依赖
 5.npm run dev  //运行项目 npm start
+
+Git提交
+VCS —— Enable V C I ——GIT  //使用git管理
+View ——Tool W——version control  //调出版本控制视图
+右键项目名称 —— Git ——commit // 提交版本，每次提交要填commit message，以提示该版本修改了什么内容
+
+路由的使用
+1.npm start运行项目，浏览器打开localhost:8080
+2.修改App.vue，去掉img，浏览器的vue图标没了
+3.在src下创建views目录,创建GoodList.vue
+//前置任务：.vue需要在setting中配置——Editor ——file and ** template，
+//复制src/components下的.vue文件过去，把多余的内容去掉，模板取名.vue
+4.GoodList.vue对应到router下复制一个路由指像它
+5.在地址栏尾巴处添加GoodList，此时跳到GoodList页面，同理再创建一个cart.vue
+
+编写页面
+把resource的html，css，js文件引过来使用
+1.把goodlist.html的body复制过来goodlist.vue放入template中
+2.修改css样式，去掉嵌套的.vue的所有样式
+3.把css整个拉到static的assets目录下
+4.在goodlist.vue中的script标签内，在export default上import样式进来
+
 
 
