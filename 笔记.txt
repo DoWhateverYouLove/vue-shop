@@ -1,4 +1,4 @@
-蔡伟健教你入门敲vue项目
+old song老师门下的蔡伟健童鞋教你入门敲vue项目
 前置任务：安装node，cnpm环境
 生成一个简单的vue-cli项目
 1.cnpm i vue-cli -g  //安装环境
@@ -20,6 +20,7 @@ View ——Tool W——version control  //调出版本控制视图
 //复制src/components下的.vue文件过去，把多余的内容去掉，模板取名.vue
 4.GoodList.vue对应到router下复制一个路由指像它
 5.在地址栏尾巴处添加GoodList，此时跳到GoodList页面，同理再创建一个cart.vue
+6.把第一个路由的component也指向goodlist，此时它是主页
 
 编写页面
 把resource的html，css，js文件引过来使用
@@ -28,5 +29,20 @@ View ——Tool W——version control  //调出版本控制视图
 3.把css整个拉到static的assets目录下
 4.在goodlist.vue中的script标签内，在export default上import样式进来
 
+
+goodlist.vue组件化
+1.在component目录下创建NavHeader.vue来存放goodlist.vue的header模块
+,header剪切到template中
+2.在goodlist.vue中import引入组件
+如import NavHeader from './../components/NavHeader.vue'
+3.在goodlist.vue中的component里引用组件，并命名
+如'nav-header': NavHeader
+然后在去掉的header的位置使用组件<nav-header></navheader>
+4.刷新，发现和原本的页面一样没有变化，成功组件化，
+其他的模块以此类推NavBread,NavFooter组件化
+
+推到git上
+右键——Git——repository——push
+push填写URL，你的git上新建个项目，将地址复制下来
 
 
