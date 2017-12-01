@@ -18,9 +18,9 @@
             <div class="filter" id="filter">
               <dl class="filter-price">
                 <dt>价格区间:</dt>
-                <dd><a href="javascript:void(0)">选择价格</a></dd>
-                <dd>
-                  <a href="javascript:void(0)">￥ 0 - 100 元</a>
+                <dd><a href="javascript:void(0)" @click="setPriceFilter('all')" :class="{'cur':priceCheked=='all'}">选择价格</a></dd>
+                <dd v-for="(item,index) in priceFilter">
+                  <a href="javascript:void(0)" @click="setPriceFilter(index)" :class="{'cur':priceCheked==index}">￥ {{item.startPrice}} - {{item.endPrice}} 元</a>
                 </dd>
               </dl>
             </div>
@@ -60,41 +60,58 @@
     import NavHeader from './../components/NavHeader.vue'
     import NavFooter from './../components/NavFooter.vue'
     import NavBread from './../components/NavBread.vue'
+    import axios from 'axios'
     export default {
         data() {
             return {
-              goodslist:[{
-                "productId":"10001",
-                "productName":"小米空气净化器 2",
-                "salePrice":"699",
-                "productImage":"小米空气净化器 2.jpg"
+              goodslist:[],
+              priceFilter:[{
+                startPrice:'0.00',
+                endPrice:'1000.00'
               },
                 {
-                  "productId":"10002",
-                  "productName":"米家空气净化器Pro",
-                  "salePrice":"1499",
-                  "productImage":"米家空气净化器Pro.jpg"
+                  startPrice:'1000.00',
+                  endPrice:'2000.00'
                 },
                 {
-                  "productId":"10003",
-                  "productName":"米家PM2.5检测仪",
-                  "salePrice":"399",
-                  "productImage":"米家PM2.5检测仪.jpg"
+                  startPrice:'2000.00',
+                  endPrice:'3000.00'
                 },
                 {
-                  "productId":"10004",
-                  "productName":"九号平衡车",
-                  "salePrice":"1999",
-                  "productImage":"九号平衡车.jpg"
-                }]
+                  startPrice:'3000.00',
+                  endPrice:'4000.00'
+                },
+                {
+                  startPrice:'4000.00',
+                  endPrice:'5000.00'
+                },
+                {
+                  startPrice:'5000.00',
+                  endPrice:'6000.00'
+                }],
+              priceCheked:'all'
             }
         },
-        components: {
-          'nav-header': NavHeader,
-          'nav-footer': NavFooter,
-          'nav-bread': NavBread
+        mounted(){
+            this.getGoodList();
         },
-        methods: {}
+        components: {
+            'nav-header': NavHeader,
+            'nav-footer': NavFooter,
+            'nav-bread': NavBread
+        },
+        methods: {
+            getGoodList(){
+                axios.get('/goods').then((result)=>{
+                  const res = result.data;
+    //              console.log(res);
+                  this.goodslist = res.result;
+              })
+          },
+          setPriceFilter(index){
+              this.priceCheked = index;
+          }
+        }
     }
 </script>
 
