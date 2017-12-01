@@ -45,4 +45,8 @@ goodlist.vue组件化
 右键——Git——repository——push
 push填写URL，你的git上新建个项目，将地址复制下来
 
+团队分工的时候，去掉import样式
+写到.vue 的<stlye scoped>内，样式问题，可以解掉scoped作用域调整
+样式拆分（暂未做）
 
+利用devServer提供数据服务
