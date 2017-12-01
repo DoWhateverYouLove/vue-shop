@@ -58,3 +58,8 @@ goodList.vue利用axios请求数据
 移动端数据过滤组件的展示
 
 移动端数据过滤组件隐藏
+
+Vue图片的懒加载
+1.cnpm install vue-lazyload -S
+2.main.js引入
+3.图片:src改成v-lazy
