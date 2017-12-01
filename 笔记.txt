@@ -50,3 +50,5 @@ push填写URL，你的git上新建个项目，将地址复制下来
 样式拆分（暂未做）
 
 利用devServer提供数据服务
+
+goodList.vue利用axios请求数据
