@@ -63,3 +63,11 @@ Vue图片的懒加载
 1.cnpm install vue-lazyload -S
 2.main.js引入
 3.图片:src改成v-lazy
+
+cnpm i express-generator -g
+express --version 查看e-g版本
+express --ejs server
+cd server
+cnpm i
+node start 端口3000跑起来
+

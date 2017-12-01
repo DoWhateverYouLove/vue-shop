@@ -11,11 +11,11 @@
             <span class="sortby">排序:</span>
             <a href="javascript:void(0)" class="default cur">默认</a>
             <a href="javascript:void(0)" class="price">价格 <svg class="icon icon-arrow-short"><use xlink:href="#icon-arrow-short"></use></svg></a>
-            <a href="javascript:void(0)" class="filterby">筛选</a>
+            <a href="javascript:void(0)" class="filterby" @click.stop="showFilterPop">筛选</a>
           </div>
           <div class="accessory-result">
             <!-- filter -->
-            <div class="filter" id="filter">
+            <div class="filter" id="filter" :class="{'filterby-show': filterBy}">
               <dl class="filter-price">
                 <dt>价格区间:</dt>
                 <dd><a href="javascript:void(0)" @click="setPriceFilter('all')" :class="{'cur':priceCheked=='all'}">选择价格</a></dd>
@@ -31,7 +31,7 @@
                 <ul>
                   <li v-for="item in goodslist">
                     <div class="pic">
-                      <a href="#"><img v-bind:src="'/static/'+item.productImage" alt=""></a>
+                      <a href="#"><img v-lazy="'/static/'+item.productImage" alt=""></a>
                     </div>
                     <div class="main">
                       <div class="name">{{item.productName}}</div>
@@ -47,6 +47,7 @@
           </div>
         </div>
       </div>
+      <div class="md-overlay" v-show="overLayFlag" @click.stop="closePop"></div>
       <nav-footer></nav-footer>
     </div>
 </template>
@@ -89,7 +90,9 @@
                   startPrice:'5000.00',
                   endPrice:'6000.00'
                 }],
-              priceCheked:'all'
+              priceCheked:'all',
+              filterBy: false,
+              overLayFlag:false
             }
         },
         mounted(){
@@ -110,6 +113,14 @@
           },
           setPriceFilter(index){
               this.priceCheked = index;
+          },
+          showFilterPop(){
+            this.filterBy = true;
+            this.overLayFlag = true;
+          },
+          closePop(){
+            this.overLayFlag = false;
+            this.filterBy = false;
           }
         }
     }
