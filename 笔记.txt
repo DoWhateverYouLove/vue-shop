@@ -71,3 +71,10 @@ cd server
 cnpm i
 node start 端口3000跑起来
 
+app.js页面ejs切换成常用的html模板
+var ejs = require('ejs')
+app.engine('.html', ejs.__express);
+app.set('view engine', 'html');
+
+把服务器打印的敏感信息干掉error.html下的
+<pre><%= error.stack %></pre>
