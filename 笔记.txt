@@ -69,7 +69,7 @@ express --version 查看e-g版本
 express --ejs server
 cd server
 cnpm i
-node start 端口3000跑起来
+npm start 端口3000跑起来
 
 app.js页面ejs切换成常用的html模板
 var ejs = require('ejs')
@@ -78,3 +78,22 @@ app.set('view engine', 'html');
 
 把服务器打印的敏感信息干掉error.html下的
 <pre><%= error.stack %></pre>
+
+创建models/goods.js
+cnpm i mongoose -S
+
+CMD
+cd C:\Program Files\MongoDB\Server\3.2\bin
+show dbs
+use vue-shop
+show tables
+db.goods.find()
+新建modles/goods.js模板
+数据库查询语句写在router/goods下
+
+修改请求的地址
+proxyTable: {
+      '/goods':{
+        target:'http://localhost:3000/'
+      }
+    }

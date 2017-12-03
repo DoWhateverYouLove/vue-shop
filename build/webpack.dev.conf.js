@@ -42,10 +42,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     before(app){
       app.get('/hello',(req,res)=>{
         res.end('Hello caiweijian');
-      }),
-      app.get('/goods',(req,res)=>{
-        res.json(goodsData);
       })
+      /*app.get('/goods',(req,res)=>{
+        res.json(goodsData);
+      })*/
     }
   },
   plugins: [
